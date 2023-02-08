@@ -13,12 +13,15 @@ function App() {
         {JSON.stringify(state.value)}
       </div>
       <button
-        onClick={ () => send("loading")}      
+        onClick={ () => send({ type: "loaded",  todos: ["Finish React code"] })}      
       >
         Loading
       </button>
       <button
-        onClick={ () => send("failed")}      
+        onClick={ () => send({
+          type: "failed",
+          errorMessage: "Failed to load"
+        })}      
       >
         Failed
       </button>
