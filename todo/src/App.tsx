@@ -1,10 +1,10 @@
 import { useMachine } from "@xstate/react";
-import { testMachine } from "./machines/testMachine";
+import { todoMachine } from "./machines/todoMachine";
 
 
 
 function App() {
-  const [state, send] = useMachine(testMachine)
+  const [state, send] = useMachine(todoMachine)
 
   return (
     <div className="App">
@@ -13,14 +13,14 @@ function App() {
         {JSON.stringify(state.value)}
       </div>
       <button
-        onClick={ () => send("MOUSEOVER")}      
+        onClick={ () => send("loading")}      
       >
-        MOUSEOVER
+        Loading
       </button>
       <button
-        onClick={ () => send("MOUSEOUT")}      
+        onClick={ () => send("failed")}      
       >
-        MOUSEOUT
+        Failed
       </button>
     </div>
   );
